@@ -1,0 +1,84 @@
+﻿@model teste_webMotorsWeb.Models.AnuncioVM
+
+@{
+    ViewData["Title"] = "Postar";
+}
+
+<h1>Criar Anuncio</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Postar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Marca" class="control-label"></label>
+                @Html.DropDownListFor(model => model.Marca, ViewBag.Marcas as SelectList, new { id = "idMarca", @onChange = "CarregarModelos(this.value)" })
+                <span asp-validation-for="Marca" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Modelo" class="control-label"></label>
+                @Html.DropDownListFor(model => model.Modelo, new SelectList(" "), "Selecione", new { id = "idModelo", @onChange = "CarregarVersoes(this.value)" })
+
+                <span asp-validation-for="Modelo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Versao" class="control-label"></label>
+                @Html.DropDownListFor(model => model.Versao, new SelectList(" "), "Selecione", new { id = "idVersao" })
+
+                <span asp-validation-for="Versao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ano" class="control-label"></label>
+                <input asp-for="Ano" class="form-control" />
+                <span asp-validation-for="Ano" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quilometragem" class="control-label"></label>
+                <input asp-for="Quilometragem" class="form-control" />
+                <span asp-validation-for="Quilometragem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Observacao" class="control-label"></label>
+                <input asp-for="Observacao" class="form-control" />
+                <span asp-validation-for="Observacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Adicionar" id="Enviar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-danger" asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+
+        $(document).ready(function () {
+            $('#idMarca').change(function () {
+                $.get("/Home/DropModelo", { id: $('#idMarca').val() }, function (data) {
+                    $('#idModelo').empty();
+                    $.each(data, function (index, row) {
+                        $('#idModelo').append("<option value ='" + row.value + "'>" + row.text + "</option>");
+                    });
+
+                });
+            });
+
+            $('#idModelo').change(function () {
+                $.get("/Home/DropVersao", { id: $('#idModelo').val() }, function (data) {
+                    $('#idVersao').empty();
+                    $.each(data, function (index, row) {
+                        $('#idVersao').append("<option value ='" + row.value + "'>" + row.text + "</option>");
+                    });
+
+                });
+            });       
+        });
+
+
+    </script>
+}

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Matheus Paes\\source\\repos\\teste_webmotors\\teste_webmotorsWeb\\teste_webmotorsWeb.csproj": {}
+    "C:\\Users\\Matheus Paes\\source\\repos\\teste_webmotors\\teste_webMotorsWeb\\teste_webMotorsWeb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Matheus Paes\\source\\repos\\teste_webmotors\\teste_webmotorsWeb\\teste_webmotorsWeb.csproj": {
+    "C:\\Users\\Matheus Paes\\source\\repos\\teste_webmotors\\teste_webMotorsWeb\\teste_webMotorsWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Matheus Paes\\source\\repos\\teste_webmotors\\teste_webmotorsWeb\\teste_webmotorsWeb.csproj",
-        "projectName": "teste_webmotorsWeb",
-        "projectPath": "C:\\Users\\Matheus Paes\\source\\repos\\teste_webmotors\\teste_webmotorsWeb\\teste_webmotorsWeb.csproj",
+        "projectUniqueName": "C:\\Users\\Matheus Paes\\source\\repos\\teste_webmotors\\teste_webMotorsWeb\\teste_webMotorsWeb.csproj",
+        "projectName": "teste_webMotorsWeb",
+        "projectPath": "C:\\Users\\Matheus Paes\\source\\repos\\teste_webmotors\\teste_webMotorsWeb\\teste_webMotorsWeb.csproj",
         "packagesPath": "C:\\Users\\Matheus Paes\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Matheus Paes\\source\\repos\\teste_webmotors\\teste_webmotorsWeb\\obj\\",
+        "outputPath": "C:\\Users\\Matheus Paes\\source\\repos\\teste_webmotors\\teste_webMotorsWeb\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Matheus Paes\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,16 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNet.Mvc": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

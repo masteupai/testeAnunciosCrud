@@ -1,0 +1,73 @@
+﻿@model IEnumerable<teste_webMotorsWeb.Models.AnuncioVM>
+@{
+    Layout = "_Layout";
+}
+
+<br />
+<a class="offset-10 btn btn-info" asp-controller="Home" asp-action="Postar">Novo Anuncio</a>
+
+<br />
+@if (Model.Count() == 0)
+{
+    <span class="alert alert-danger col-md-12">Não há anuncios no momento!</span>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Marca)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Modelo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Versao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ano)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quilometragem)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Observacao)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @Html.HiddenFor(modelItem => item.Id)
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Marca)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Modelo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Versao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ano)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quilometragem)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Observacao)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
+                        @Html.ActionLink("Detalhes", "Detalhes", new { id = item.Id }) |
+                        @Html.ActionLink("Remover", "Remover", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}

@@ -11,7 +11,7 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.RelatedAssemblyAttribute("teste_webmotorsWeb.Views")]
+[assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.RelatedAssemblyAttribute("teste_webMotorsWeb.Views")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.
 
